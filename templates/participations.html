@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Participations</h1>
+
+<!-- Form to Add Participation -->
+<form method="POST" action="{{ url_for('participations') }}">
+    <div class="form-group">
+        <label for="person_id">Person ID</label>
+        <input type="number" class="form-control" id="person_id" name="person_id" required>
+    </div>
+    <div class="form-group">
+        <label for="session_id">Session ID</label>
+        <input type="number" class="form-control" id="session_id" name="session_id" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Participation</button>
+</form>
+
+<!-- Display Participations -->
+<div id="participations-container">
+    <h2>Existing Participations</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {% for column in columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for participation in participations %}
+            <tr>
+                {% for column in columns %}
+                <td>{{ participation[column] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

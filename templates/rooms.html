@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Rooms</h1>
+
+<!-- Form to Add a New Room -->
+<form method="POST" action="{{ url_for('rooms') }}">
+    <div class="form-group">
+        <label for="center_id">Center ID</label>
+        <input type="number" class="form-control" id="center_id" name="center_id" required>
+    </div>
+    <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input type="number" class="form-control" id="capacity" name="capacity" required>
+    </div>
+    <div class="form-group">
+        <label for="number">Room Number</label>
+        <input type="number" class="form-control" id="number" name="number" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Room</button>
+</form>
+
+<!-- Display Existing Rooms -->
+<h2>Existing Rooms</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            {% for column in columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room.room_id }}</td>
+            <td>{{ room.center_id }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>{{ room.number }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

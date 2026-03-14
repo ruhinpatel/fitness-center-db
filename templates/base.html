@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Fitness Center Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 56px; /* Adjust this padding to ensure there's space between the navbar and the content */
+        }
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+        }
+        .navbar-custom {
+            background-color: #e9ecef; /* Light shade for navbar */
+        }
+        .jumbotron-custom {
+            background-color: #f8f9fa; /* Slightly different shade for jumbotron */
+        }
+        .carousel-image {
+            max-height: 900px; /* Adjust the height as needed */
+            object-fit: fill;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Fitness Center Management</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('centers') }}">Centers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('rooms') }}">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('sessions') }}">Sessions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('persons') }}">Persons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('participations') }}">Participations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('trainers') }}">Trainers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('interesting_questions') }}">Interesting Questions</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Interesting Questions</h1>
+
+<!-- Dropdown Form for Selecting Questions -->
+<form method="POST" action="{{ url_for('interesting_questions') }}">
+    <div class="form-group">
+        <label for="question">Select a Question</label>
+        <select class="form-control" id="question" name="question">
+            {% for key, question in questions.items() %}
+            <option value="{{ key }}">{{ question }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Answer</button>
+</form>
+
+<!-- Display Query Results -->
+{% if query_results %}
+<div id="query-results">
+    <h2>Query Results</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {% for column in columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in query_results %}
+            <tr>
+                {% for column in columns %}
+                <td>{{ result[column] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
