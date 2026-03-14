@@ -333,9 +333,9 @@ if __name__ == '__main__':
         if os.path.exists('fitness_center.db'):
             os.remove('fitness_center.db')
         db.create_all()
-        execute_sql_file('CreateDB-FinalGroupProject.sql')
+        execute_sql_file('CreateDB.sql')
 
     # if not os.path.exists('fitness_center.db') or os.path.getsize('fitness_center.db') == 0:
-    #     execute_sql_file('CreateDB-FinalGroupProject.sql')
+    #     execute_sql_file('CreateDB.sql')
 
     app.run(debug=True, use_reloader=False)
