@@ -63,10 +63,10 @@ Queries use multi-table JOINs, GROUP BY aggregations, AVG, COUNT, CASE expressio
 ## Project Structure
 ```
 fitness-center-db/
-├── app.py                          # Flask application, routes, ORM models
-├── CreateDB-FinalGroupProject.sql  # Schema creation and seed data
-├── QueryDB-FinalGroupProject.sql   # 10 analytical queries
-├── initialize_db.py                # Database initialization script
+├── app.py                            # Flask application, routes, ORM models
+├── CreateDB.sql                      # Schema creation and seed data
+├── QueryDB.sql                       # 10 analytical queries
+├── initialize_db.py                  # Database initialization script
 ├── templates/
 │   ├── base.html
 │   ├── home.html
